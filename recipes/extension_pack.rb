@@ -16,10 +16,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+include Vbox::Helpers
 
 remote_file node['virtualbox']['extpack_file'] do
   source node['virtualbox']['extpack_url']
-  checksum Vbox::Helpers.vbox_sha256sum(node['virtualbox']['extpack_url'])
+  checksum vbox_sha256sum(node['virtualbox']['extpack_url'])
 end
 
 bash "install virtualbox extpack if not already installed" do
