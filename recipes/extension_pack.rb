@@ -17,9 +17,11 @@
 # limitations under the License.
 #
 
+extpack_sha1 = vbox_sha256sum(node['virtualbox']['extpack_url'])
+
 remote_file node['virtualbox']['extpack_file'] do
   source node['virtualbox']['extpack_url']
-  checksum vbox_sha256sum(node['virtualbox']['extpack_url'])
+  checksum extpack_sha1
 end
 
 bash "install virtualbox extpack if not already installed" do
