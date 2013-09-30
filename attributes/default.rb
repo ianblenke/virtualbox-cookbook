@@ -23,10 +23,14 @@ default['virtualbox']['version'] = ''
 
 case node['platform_family']
 when 'mac_os_x'
-  default['virtualbox']['url'] = 'http://download.virtualbox.org/virtualbox/4.2.12/VirtualBox-4.2.12-84980-OSX.dmg'
+  default['virtualbox']['url'] = 'http://download.virtualbox.org/virtualbox/4.2.18/VirtualBox-4.2.18-88780-OSX.dmg'
 when 'windows'
-  default['virtualbox']['url'] = 'http://download.virtualbox.org/virtualbox/4.2.12/VirtualBox-4.2.12-84980-Win.exe'
+  default['virtualbox']['url'] = 'http://download.virtualbox.org/virtualbox/4.2.18/VirtualBox-4.2.18-88780-Win.exe'
   default['virtualbox']['version'] = Vbox::Helpers.vbox_version(node['virtualbox']['url'])
 when 'debian', 'rhel'
   default['virtualbox']['version'] = '4.2'
 end
+
+default['virtualbox']['extpack_url'] = 'http://download.virtualbox.org/virtualbox/4.2.18/Oracle_VM_VirtualBox_Extension_Pack-4.2.18.vbox-extpack'
+default['virtualbox']['extpack_file'] = "#{Chef::Config[:file_cache_path]}/#{::File.basename(::URI.parse(node['virtualbox']['extpack_url']).path}"
+
