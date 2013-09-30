@@ -32,5 +32,5 @@ when 'debian', 'rhel'
 end
 
 default['virtualbox']['extpack_url'] = 'http://download.virtualbox.org/virtualbox/4.2.18/Oracle_VM_VirtualBox_Extension_Pack-4.2.18.vbox-extpack'
-default['virtualbox']['extpack_file'] = "#{Chef::Config[:file_cache_path]}/#{::File.basename(::URI.parse(node['virtualbox']['extpack_url']).path}"
+default['virtualbox']['extpack_file'] = "#{Chef::Config[:file_cache_path]}/#{::File.basename(::URI.parse(node['virtualbox']['extpack_url']).path)}"
 
