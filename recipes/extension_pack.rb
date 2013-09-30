@@ -16,7 +16,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-include Vbox::Helpers
 
 remote_file node['virtualbox']['extpack_file'] do
   source node['virtualbox']['extpack_url']
