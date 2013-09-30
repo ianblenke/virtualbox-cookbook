@@ -19,7 +19,7 @@
 
 remote_file node['virtualbox']['extpack_file'] do
   source node['virtualbox']['extpack_url']
-  checksum vbox_sha256sum(node['virtualbox']['extpack_url'])
+  checksum Vbox::Helpers.vbox_sha256sum(node['virtualbox']['extpack_url'])
 end
 
 bash "install virtualbox extpack if not already installed" do
